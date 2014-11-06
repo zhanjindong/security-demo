@@ -5,7 +5,6 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>security</display-name>
 
-	<!--SimpleXSSFilter -->
 	<filter>
 		<filter-name>CSRFRefererFilter</filter-name>
 		<filter-class>csrf.CSRFRefererFilter</filter-class>
@@ -19,7 +18,15 @@
 		<url-pattern>target.jsp</url-pattern>
 	</filter-mapping>
 
-	<!--SimpleXSSFilter -->
+	<filter>
+		<filter-name>CSRFTokenFilter</filter-name>
+		<filter-class>csrf.CSRFTokenFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CSRFTokenFilter</filter-name>
+		<url-pattern>token2.jsp</url-pattern>
+	</filter-mapping>
+
 	<filter>
 		<filter-name>SimpleXSSFilter</filter-name>
 		<filter-class>xss.EsapiXSSFilter</filter-class>
@@ -27,6 +34,42 @@
 	<filter-mapping>
 		<filter-name>SimpleXSSFilter</filter-name>
 		<url-pattern>xss.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- Google simple scrf filter -->
+	<filter>
+		<filter-name>csrfFilter</filter-name>
+		<filter-class>csrf.StatelessCookieFilter</filter-class>
+		<init-param>
+			<param-name>csrfTokenName</param-name>
+			<param-value>csrf</param-value>
+		</init-param>
+		<init-param>
+			<!-- optional. urls to exclude from check -->
+			<param-name>exclude</param-name>
+			<param-value>/url1,/url/url2</param-value>
+		</init-param>
+		<init-param>
+			<!-- optional. urls to exclude from generating csrf cookie. Useful for 
+				ajax requests that do not contain forms -->
+			<param-name>excludeGET</param-name>
+			<param-value>/url3,/url/url4</param-value>
+		</init-param>
+		<init-param>
+			<!-- optional. urls to exclude from generating csrf cookie. Exclude do 
+				check servletPath().startsWith() -->
+			<param-name>excludeGETStartWith</param-name>
+			<param-value>/js/,/css/,/img/</param-value>
+		</init-param>
+		<init-param>
+			<!-- optional. cookieMaxAge. By default 3600 seconds -->
+			<param-name>cookieMaxAge</param-name>
+			<param-value>18000</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>csrfFilter</filter-name>
+		<url-pattern>token2.jsp</url-pattern>
 	</filter-mapping>
 
 </web-app>

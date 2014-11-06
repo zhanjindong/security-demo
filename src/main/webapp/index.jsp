@@ -8,8 +8,14 @@
 </head>
 <body>
 	<%
-		out.println("<a href=\"/security-web/xss.jsp?name=<script>alert('XSS attacked!')</script>\" >Test XSS(Use IE).Redirect to xss.jsp</a> <br />");
-		out.println("<a href=\"/security-web/target.jsp\">Test CSRF.Redirect to target.jsp</a> <br />");
+		out.println("<a href=\"/security-demo/xss.jsp?name=<script>alert('XSS attacked!')</script>\" >Test XSS(Use IE).Redirect to xss.jsp</a> <br />");
+		out.println("<a href=\"/security-demo/target.jsp\">Test CSRF.Redirect to target.jsp</a> <br />");
 	%>
+
+	<%out.println("Request Token CSRF <br/>"); %>
+	<form action="/security-demo/token.jsp?csrf=${csrf}" method="POST"
+		enctype="multipart/form-data">
+		<input type="file" name="file" size="50" />
+	</form>
 </body>
 </html>

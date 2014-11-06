@@ -73,15 +73,7 @@ public class SimpleXSSRequestWrapper extends HttpServletRequestWrapper {
 
 	private String stripXSS(String value) {
 		if (value != null) {
-			// NOTE: It's highly recommended to use the ESAPI library and
-			// uncomment the following line to
-			// avoid encoded attacks.
-			// value = ESAPI.encoder().canonicalize(value);
-
-			// Avoid null characters
 			value = value.replaceAll("\0", "");
-
-			// Remove all sections that match a pattern
 			for (Pattern scriptPattern : patterns) {
 				value = scriptPattern.matcher(value).replaceAll("");
 			}
