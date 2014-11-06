@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>security</display-name>
+
+	<!--SimpleXSSFilter -->
+	<filter>
+		<filter-name>CSRFRefererFilter</filter-name>
+		<filter-class>csrf.CSRFRefererFilter</filter-class>
+		<init-param>
+			<param-name>referer_prefix</param-name>
+			<param-value>http://localhost:8080/</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CSRFRefererFilter</filter-name>
+		<url-pattern>target.jsp</url-pattern>
+	</filter-mapping>
+
+	<!--SimpleXSSFilter -->
+	<filter>
+		<filter-name>SimpleXSSFilter</filter-name>
+		<filter-class>xss.EsapiXSSFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SimpleXSSFilter</filter-name>
+		<url-pattern>xss.jsp</url-pattern>
+	</filter-mapping>
+
+</web-app>
