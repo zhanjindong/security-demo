@@ -12,6 +12,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.owasp.esapi.ESAPI;
+
 /**
  * 
  * 通过简单的全局Seesion token进行用户身份验证。

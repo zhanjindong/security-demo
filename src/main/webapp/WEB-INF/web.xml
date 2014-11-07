@@ -4,7 +4,10 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>security</display-name>
-
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.jsp</location>
+	</error-page>
 	<filter>
 		<filter-name>CSRFRefererFilter</filter-name>
 		<filter-class>csrf.CSRFRefererFilter</filter-class>

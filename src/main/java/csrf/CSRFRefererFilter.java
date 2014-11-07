@@ -10,6 +10,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+import org.owasp.esapi.ESAPI;
+
 /**
  * 
  * 简单的通过Referer进行CSRF过滤。

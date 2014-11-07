@@ -22,6 +22,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * 
+ * Google simple-csrf-filter:https://code.google.com/p/csrf-filter/。
+ * 
+ * @author jdzhan,2014-11-6
+ * 
+ */
 public class StatelessCookieFilter implements Filter {
 
 	private final static Logger LOG = LoggerFactory.getLogger(StatelessCookieFilter.class);
