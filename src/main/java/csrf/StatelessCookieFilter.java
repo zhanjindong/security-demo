@@ -61,6 +61,7 @@ public class StatelessCookieFilter implements Filter {
 
 	private void doFilterInternal(HttpServletRequest req, HttpServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println(req.getMethod());
 		if (!req.getMethod().equals("POST")) {
 			if (excludeFormURLs.contains(req.getServletPath())) {
 				chain.doFilter(req, resp);
@@ -100,6 +101,7 @@ public class StatelessCookieFilter implements Filter {
 
 		for (Cookie curCookie : req.getCookies()) {
 			if (curCookie.getName().equals(csrfTokenName)) {
+				System.out.println(curCookie.getValue());
 				if (curCookie.getValue().equals(csrfToken)) {
 					chain.doFilter(req, resp);
 					return;

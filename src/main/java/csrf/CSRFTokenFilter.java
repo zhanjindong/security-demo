@@ -22,7 +22,7 @@ import org.owasp.esapi.ESAPI;
  * 
  */
 public class CSRFTokenFilter implements Filter {
-	
+
 	private static Random random = new Random();
 
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -33,6 +33,9 @@ public class CSRFTokenFilter implements Filter {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession s = req.getSession();
+
+		String value = req.getParameter("test");
+		System.out.println("hidden-value:" + value);
 
 		// 从 session 中得到 csrftoken 属性
 		String sToken = (String) s.getAttribute("csrftoken");

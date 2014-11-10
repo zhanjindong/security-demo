@@ -72,7 +72,8 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>csrfFilter</filter-name>
-		<url-pattern>token2.jsp</url-pattern>
+		<url-pattern>token.jsp</url-pattern>
+		<url-pattern>index.jsp</url-pattern>
 	</filter-mapping>
 
 </web-app>
