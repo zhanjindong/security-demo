@@ -12,8 +12,8 @@
 		<filter-name>CSRFRefererFilter</filter-name>
 		<filter-class>csrf.CSRFRefererFilter</filter-class>
 		<init-param>
-			<param-name>referer_prefix</param-name>
-			<param-value>http://localhost:8080/</param-value>
+			<param-name>refererPrefix</param-name>
+			<param-value>http://localhost:8082/,http://localhost:8080/</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>

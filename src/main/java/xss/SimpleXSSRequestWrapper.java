@@ -41,6 +41,10 @@ public class SimpleXSSRequestWrapper extends HttpServletRequestWrapper {
 		super(servletRequest);
 	}
 
+	public static void addFilterPattern(String pattern) {
+		
+	}
+
 	@Override
 	public String[] getParameterValues(String parameter) {
 		String[] values = super.getParameterValues(parameter);
