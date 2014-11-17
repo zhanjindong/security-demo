@@ -76,4 +76,35 @@
 		<url-pattern>index.jsp</url-pattern>
 	</filter-mapping>
 
+	<!-- Clickjacking点击劫持 -->
+	<filter>
+		<filter-name>clickjackFilter</filter-name>
+		<filter-class>clickjacking.ClickjackFilter</filter-class>
+		<init-param>
+			<param-name>mode</param-name>
+			<param-value>DENY</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>clickjackFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+
+	<!-- dos -->
+	<filter>
+		<filter-name>requestRateFilter</filter-name>
+		<filter-class>dos.RequestRateThrottleFilter</filter-class>
+		<init-param>
+			<param-name>hits</param-name>
+			<param-value>50</param-value>
+		</init-param>
+		<init-param>
+			<param-name>period</param-name>
+			<param-value>10</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>requestRateFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
 </web-app>

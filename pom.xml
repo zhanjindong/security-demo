@@ -5,7 +5,13 @@
 	<artifactId>security-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+
 	<dependencies>
+		<dependency>
+			<groupId>com.iflytek</groupId>
+			<artifactId>ossp-framework-common</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+		</dependency>
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
